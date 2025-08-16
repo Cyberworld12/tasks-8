@@ -1,0 +1,72 @@
+VPN Usage and Research Task
+
+TOOLS USED:
+- Operating System: Ubuntu
+- VPN Service: Proton VPN (Free)
+- Proton VPN Client (Official)
+- Terminal Command Line Interface
+
+TASKS COMPLETED & COMMANDS USED:
+
+1. Create Account and Install Client:
+   - Created a free Proton VPN account on the official website.
+   - Installed required tools:
+        sudo apt update
+        sudo apt install -y curl wget apt-transport-https ca-certificates
+   - Added ProtonVPN repository:
+        wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
+        sudo dpkg -i ./protonvpn-stable-release_1.0.8_all.deb
+        sudo apt update
+   - Installed ProtonVPN client:
+        sudo apt install -y proton-vpn-gnome-desktop
+
+2. Connect to VPN Server:
+   - Launched ProtonVPN from the applications menu.
+   - Logged in using account credentials.
+   - Connected to the nearest available free server.
+
+3. Verify IP Address:
+   - Before VPN connection:
+        curl ifconfig.me
+   - After VPN connection:
+        curl ifconfig.me
+
+4. Browse Website:
+   - Opened browser and visited https://whatismyipaddress.com
+   - Verified VPN IP was displayed.
+
+5. Disconnect and Compare Speed:
+   - Disconnected VPN and checked IP again.
+   - Speed Test Tool Installed:
+        sudo apt install -y speedtest-cli
+   - Ran speed test with and without VPN:
+        speedtest-cli
+
+6. Confirm Encrypted Tunnel:
+   - Checked active connections:
+        nmcli connection show --active
+   - Verified tunnel interface:
+        ip link | grep -E 'wg|tun'
+   - Verified DNS servers used:
+        resolvectl dns
+
+7. Research VPN Encryption and Privacy Features:
+   - Protocols supported: WireGuard and OpenVPN
+   - Encryption: AES-256 (OpenVPN), ChaCha20 (WireGuard)
+   - Security features: Kill switch, DNS leak protection, no-logs policy
+
+SUMMARY: VPN BENEFITS AND LIMITATIONS
+
+VPN Benefits:
+- Masks real IP and location.
+- Encrypts all internet traffic (useful on public Wi-Fi).
+- Helps bypass censorship and geo-blocking.
+- Prevents ISP from monitoring browsing activities.
+- Provides strong security with modern encryption protocols.
+
+VPN Limitations:
+- Free plans have limited servers and reduced speeds.
+- VPN does not guarantee complete anonymity (cookies, logins still track).
+- Some websites block VPN IPs.
+- Browsing speed slightly reduced due to encryption overhead.
+
